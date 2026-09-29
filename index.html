@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrousel TikTok - Limites & Continuité (Safe Zone)</title>
-    <!-- MathJax pour les formules mathématiques -->
+    <title>Carrousel TikTok - Exercices Limites & Continuité (Terminale S)</title>
+    
+    <!-- Configuration MathJax : rendu agrandi de 18% -->
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['\\(', '\\)']] },
+            chtml: { scale: 1.18 }
+        };
+    </script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Nunito:wght@600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Nunito:wght@700;800;900&display=swap');
 
         body {
             background-color: #080b12;
@@ -21,7 +29,7 @@
             font-family: 'Nunito', sans-serif;
         }
 
-        /* Format 9:16 strict avec SAFE ZONE TikTok intégrée */
+        /* Format 9:16 strict avec Safe Zone TikTok */
         .slide {
             width: 405px;
             height: 720px;
@@ -32,14 +40,8 @@
             flex-direction: column;
             justify-content: space-between;
             
-            /* ========================================================
-               MARGES DE SÉCURITÉ TIKTOK :
-               - Top: 85px (évite "Pour toi", recherche)
-               - Right: 38px (évite Likes, Commentaires, Favoris)
-               - Bottom: 130px (évite Légende, Pseudo, Musique)
-               - Left: 24px
-               ======================================================== */
-            padding: 85px 38px 130px 24px;
+            /* Safe Zone TikTok : 80px en haut, 35px à droite, 120px en bas, 22px à gauche */
+            padding: 80px 35px 120px 22px;
             box-sizing: border-box;
             position: relative;
             color: #f1f5f9;
@@ -47,7 +49,6 @@
             overflow: hidden;
         }
 
-        /* Texture discrète tableau noir */
         .slide::before {
             content: '';
             position: absolute;
@@ -67,31 +68,31 @@
         }
 
         .badge-topic {
-            background: rgba(56, 189, 248, 0.15);
-            color: #38bdf8;
-            font-size: 10px;
-            font-weight: 800;
-            padding: 3px 8px;
+            background: rgba(244, 63, 94, 0.18);
+            color: #f43f5e;
+            font-size: 12px;
+            font-weight: 900;
+            padding: 4px 10px;
             border-radius: 20px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border: 1px solid rgba(56, 189, 248, 0.3);
+            letter-spacing: 0.6px;
+            border: 1px solid rgba(244, 63, 94, 0.4);
         }
 
         .slide-number {
-            font-size: 11px;
-            color: #64748b;
-            font-weight: 700;
+            font-size: 13px;
+            color: #94a3b8;
+            font-weight: 800;
         }
 
-        /* Titre principal */
+        /* Titres */
         h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 18px;
-            color: #f8fafc;
+            font-size: 21px;
+            color: #ffffff;
             text-align: left;
-            margin: 8px 0 10px 0;
-            line-height: 1.25;
+            margin: 10px 0 8px 0;
+            line-height: 1.2;
             z-index: 1;
         }
 
@@ -99,62 +100,60 @@
             color: #38bdf8;
         }
 
-        /* Zone de contenu */
+        /* Conteneur principal */
         .content {
-            font-size: 13.5px;
-            line-height: 1.45;
+            font-size: 16px;
+            line-height: 1.4;
             z-index: 1;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            gap: 10px;
         }
 
-        ul {
-            padding-left: 16px;
-            margin: 0 0 8px 0;
+        /* Cartes d'exercices */
+        .exo-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #38bdf8;
+            padding: 10px 14px;
+            border-radius: 0 10px 10px 0;
+            font-size: 15.5px;
         }
 
-        li {
-            margin-bottom: 7px;
-        }
-
-        .highlight {
+        .exo-title {
+            font-weight: 900;
             color: #fbbf24;
-            font-weight: 700;
-        }
-
-        .highlight-red {
-            color: #f43f5e;
-            font-weight: 800;
-        }
-
-        .highlight-green {
-            color: #34d399;
-            font-weight: 700;
-        }
-
-        .box {
-            background: rgba(255, 255, 255, 0.04);
-            border-left: 3px solid #38bdf8;
-            padding: 7px 11px;
-            border-radius: 0 8px 8px 0;
-            margin-top: 7px;
             font-size: 12.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+            display: block;
         }
 
-        /* CTA permanent repositionné dans la zone 100% visible */
+        /* Boîte astuces */
+        .tip-box {
+            background: rgba(52, 211, 153, 0.1);
+            border: 1px dashed #34d399;
+            padding: 9px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #a7f3d0;
+            font-weight: 700;
+        }
+
+        /* Nouveau CTA persistant axé sur le commentaire */
         .persistent-cta {
             z-index: 2;
             background: linear-gradient(90deg, #1e293b, #0f172a);
             border: 1px solid #334155;
-            border-radius: 12px;
-            padding: 8px 12px;
+            border-radius: 14px;
+            padding: 9px 14px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-top: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
 
         .cta-info {
@@ -163,32 +162,29 @@
         }
 
         .cta-tag {
-            font-size: 9.5px;
+            font-size: 10px;
             color: #fbbf24;
-            font-weight: 800;
+            font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .cta-subtext {
-            font-size: 11px;
-            color: #e2e8f0;
-            font-weight: 700;
+            font-size: 12px;
+            color: #f8fafc;
+            font-weight: 800;
         }
 
         .cta-button-pill {
             background: #f43f5e;
             color: white;
-            padding: 5px 12px;
-            border-radius: 18px;
-            font-size: 11px;
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 11.5px;
             font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 3px;
+            font-weight: 900;
             white-space: nowrap;
-            box-shadow: 0 0 10px rgba(244, 63, 94, 0.4);
+            box-shadow: 0 0 12px rgba(244, 63, 94, 0.5);
         }
 
         /* Slide finale */
@@ -200,34 +196,36 @@
         }
 
         .big-icon {
-            font-size: 50px;
+            font-size: 55px;
             margin-bottom: 8px;
         }
 
         .final-title {
             font-family: 'Montserrat', sans-serif;
-            font-size: 22px;
+            font-size: 21px;
             color: #ffffff;
-            margin-bottom: 10px;
-            line-height: 1.25;
+            margin-bottom: 12px;
+            line-height: 1.3;
+            text-transform: uppercase;
         }
 
         .final-desc {
-            font-size: 14px;
-            color: #94a3b8;
+            font-size: 14.5px;
+            color: #cbd5e1;
             margin-bottom: 22px;
-            padding: 0 5px;
+            padding: 0 8px;
+            line-height: 1.45;
         }
 
         .big-cta-btn {
             background: #f43f5e;
             color: white;
-            padding: 14px 26px;
+            padding: 14px 24px;
             border-radius: 35px;
             font-size: 15px;
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
-            box-shadow: 0 0 20px rgba(244, 63, 94, 0.55);
+            box-shadow: 0 0 25px rgba(244, 63, 94, 0.6);
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -239,36 +237,34 @@
     <!-- ==================== SLIDE 1 ==================== -->
     <div class="slide">
         <div class="header">
-            <span class="badge-topic">Terminale S • Maths</span>
+            <span class="badge-topic">Terminale S • Exo Bac</span>
             <span class="slide-number">01 / 06</span>
         </div>
 
-        <h1>Continuité & <span>Règles de Base</span></h1>
+        <h1>Forme Indéterminée <span>« 0 / 0 »</span></h1>
 
         <div class="content">
-            <ul>
-                <li>Les <span class="highlight">fonctions polynômes</span> sont continues sur tout \( \mathbb{R} \).</li>
-                <li>Les <span class="highlight">fonctions rationnelles</span> sont continues sur leur domaine \( D_f \).</li>
-                <li>\( \cos x \) et \( \sin x \) sont continues sur \( \mathbb{R} \).</li>
-            </ul>
-
-            <div class="box" style="border-left-color: #38bdf8;">
-                <span class="highlight">Continuité en un point \( a \) :</span><br>
-                \( \lim_{x \to a^-} f(x) = \lim_{x \to a^+} f(x) = f(a) \)
+            <div class="exo-box">
+                <span class="exo-title">Exo 1 • Factorisation</span>
+                Calculer : \( \lim_{x \to 1} \frac{x^2+3x-4}{x-1} \)
             </div>
 
-            <div class="box" style="border-left-color: #34d399;">
-                <span class="highlight-green">Limite fondamentale :</span><br>
-                \( \lim_{x \to 0} \frac{\sin x}{x} = 1 \)
+            <div class="exo-box" style="border-left-color: #fbbf24;">
+                <span class="exo-title">Exo 2 • Expression Conjuguée</span>
+                Calculer : \( \lim_{x \to 1} \frac{\sqrt{x+3}-2}{x-1} \)
+            </div>
+
+            <div class="tip-box">
+                💡 <strong>Astuce :</strong> Simplifie toujours par \( (x - 1) \) après avoir factorisé ou multiplié par le conjugué !
             </div>
         </div>
 
         <div class="persistent-cta">
             <div class="cta-info">
-                <span class="cta-tag">PARTIE 1/2 • BAC S</span>
-                <span class="cta-subtext">Exercices types Bac à suivre ! 📝</span>
+                <span class="cta-tag">CORRECTION EN VIDÉO 🎬</span>
+                <span class="cta-subtext">Dis en com l'exo à corriger !</span>
             </div>
-            <div class="cta-button-pill">+ S'ABONNER</div>
+            <div class="cta-button-pill">COMMENTE 👇</div>
         </div>
     </div>
 
@@ -276,32 +272,34 @@
     <!-- ==================== SLIDE 2 ==================== -->
     <div class="slide">
         <div class="header">
-            <span class="badge-topic">Terminale S • Asymptotes</span>
+            <span class="badge-topic">Terminale S • Piège Bac</span>
             <span class="slide-number">02 / 06</span>
         </div>
 
-        <h1>Branches au <span>Voisinage de \( +\infty \)</span></h1>
+        <h1>Radicaux : <span>Piège en \( -\infty \)</span></h1>
 
         <div class="content">
-            <p style="margin-bottom: 6px;">On étudie le quotient \( \lim_{x \to +\infty} \frac{f(x)}{x} \) :</p>
-            <ul>
-                <li>Si <span class="highlight">\(= 0\)</span> : Branche parab. direction \( (O, \vec{i}) \).</li>
-                <li>Si <span class="highlight">\(= \infty\)</span> : Branche parab. direction \( (O, \vec{j}) \).</li>
-                <li>Si <span class="highlight">\(= a \; (a \neq 0)\)</span>, on calcule \( \lim_{x \to +\infty} [f(x) - ax] \) :
-                    <ul>
-                        <li>Si <span class="highlight-green">\(= b\)</span> : Asymptote oblique \( y = ax + b \).</li>
-                        <li>Si <span class="highlight-red">\(= \infty\)</span> : Direction asymptotique \( y = ax \).</li>
-                    </ul>
-                </li>
-            </ul>
+            <div class="exo-box" style="border-left-color: #f43f5e;">
+                <span class="exo-title">Exo 3.2 • Attention au signe</span>
+                Calculer : \( \lim_{x \to -\infty} \frac{\sqrt{x^2+2x-5}}{2x} \)
+            </div>
+
+            <div class="exo-box">
+                <span class="exo-title">Exo 3.3 • Forme \( \infty - \infty \)</span>
+                Calculer : \( \lim_{x \to -\infty} \left( \sqrt{3x^2+x-1} + x \right) \)
+            </div>
+
+            <div class="tip-box" style="border-color: #f43f5e; color: #fecdd3; background: rgba(244,63,94,0.12);">
+                ⚠️ <strong>Règle clé :</strong> Quand \( x < 0 \), on a \( \sqrt{x^2} = |x| = \mathbf{-x} \) !
+            </div>
         </div>
 
         <div class="persistent-cta">
             <div class="cta-info">
-                <span class="cta-tag">PARTIE 1/2 • BAC S</span>
-                <span class="cta-subtext">La série d'exercices arrive ! 🎯</span>
+                <span class="cta-tag">CORRECTION EN VIDÉO 🎬</span>
+                <span class="cta-subtext">Dis en com l'exo à corriger !</span>
             </div>
-            <div class="cta-button-pill">+ S'ABONNER</div>
+            <div class="cta-button-pill">COMMENTE 👇</div>
         </div>
     </div>
 
@@ -309,34 +307,34 @@
     <!-- ==================== SLIDE 3 ==================== -->
     <div class="slide">
         <div class="header">
-            <span class="badge-topic">Terminale S • Théorèmes</span>
+            <span class="badge-topic">Terminale S • Trigo</span>
             <span class="slide-number">03 / 06</span>
         </div>
 
-        <h1>Théorèmes de <span>Comparaison</span></h1>
+        <h1>Limites <span>Trigonométriques</span></h1>
 
         <div class="content">
-            <div class="box" style="border-left-color: #fbbf24;">
-                <span class="highlight">Théorème des Gendarmes :</span><br>
-                Si \( u(x) \le f(x) \le v(x) \) et \( \lim u = \lim v = \ell \),<br>
-                alors <span class="highlight-green">\( \lim f = \ell \)</span>.
+            <div class="exo-box">
+                <span class="exo-title">Exo 4.5 • Changement de variable</span>
+                Calculer : \( \lim_{x \to +\infty} x \sin\left(\frac{1}{x}\right) \)
             </div>
 
-            <p style="margin: 10px 0 5px 0; font-weight: 700;">Limites infinies :</p>
-            <ul>
-                <li>Si \( f(x) \ge u(x) \) et \( \lim u = +\infty \)<br>
-                👉 <span class="highlight-green">\( \lim f = +\infty \)</span></li>
-                <li>Si \( f(x) \le u(x) \) et \( \lim u = -\infty \)<br>
-                👉 <span class="highlight-red">\( \lim f = -\infty \)</span></li>
-            </ul>
+            <div class="exo-box" style="border-left-color: #fbbf24;">
+                <span class="exo-title">Exo 4.2 • Taux d'accroissement</span>
+                Calculer : \( \lim_{x \to 0} \frac{\sin x + \sin 2x}{\sin x - \sin 2x} \)
+            </div>
+
+            <div class="tip-box">
+                💡 <strong>Rappel :</strong> Pose \( X = \frac{1}{x} \) pour utiliser la référence \( \lim_{X \to 0} \frac{\sin X}{X} = 1 \).
+            </div>
         </div>
 
         <div class="persistent-cta">
             <div class="cta-info">
-                <span class="cta-tag">PARTIE 1/2 • BAC S</span>
-                <span class="cta-subtext">Ne rate pas les exos d'application !</span>
+                <span class="cta-tag">CORRECTION EN VIDÉO 🎬</span>
+                <span class="cta-subtext">Dis en com l'exo à corriger !</span>
             </div>
-            <div class="cta-button-pill">+ S'ABONNER</div>
+            <div class="cta-button-pill">COMMENTE 👇</div>
         </div>
     </div>
 
@@ -344,30 +342,34 @@
     <!-- ==================== SLIDE 4 ==================== -->
     <div class="slide">
         <div class="header">
-            <span class="badge-topic">Terminale S • Incontournable</span>
+            <span class="badge-topic">Terminale S • Encadrement</span>
             <span class="slide-number">04 / 06</span>
         </div>
 
-        <h1>Théorème des <span>Valeurs Intermédiaires</span></h1>
+        <h1>Théorème des <span>Gendarmes</span></h1>
 
         <div class="content">
-            <ul>
-                <li>Soit \( f \) continue sur \( [a, b] \). Pour tout réel \( k \) entre \( f(a) \) et \( f(b) \), l'équation \( f(x) = k \) admet <span class="highlight">au moins une solution</span>.</li>
-                <li>Si \( f \) est <span class="highlight-red">strictement monotone</span>, la solution est <span class="highlight-green">unique</span> sur \( [a, b] \).</li>
-            </ul>
+            <div class="exo-box" style="border-left-color: #38bdf8;">
+                <span class="exo-title">Exo 13 • Classique du Bac</span>
+                Soit \( f(x) = \frac{2x + \cos x}{x+1} \) pour \( x > -1 \).
+                <div style="margin-top: 8px;">
+                    <strong>1)</strong> Montrer que :
+                    \[ \frac{2x-1}{x+1} \le f(x) \le \frac{2x+1}{x+1} \]
+                    <strong>2)</strong> En déduire \( \lim_{x \to +\infty} f(x) \).
+                </div>
+            </div>
 
-            <div class="box" style="border-left-color: #f43f5e;">
-                <span class="highlight-red">Cas particulier (Bac) :</span><br>
-                Si \( f(a) \times f(b) < 0 \), l'équation \( f(x) = 0 \) admet au moins une solution dans \( ]a, b[ \).
+            <div class="tip-box">
+                💡 <strong>Méthode :</strong> Pars toujours de \( -1 \le \cos x \le 1 \).
             </div>
         </div>
 
         <div class="persistent-cta">
             <div class="cta-info">
-                <span class="cta-tag">PARTIE 1/2 • BAC S</span>
-                <span class="cta-subtext">Application pratique dans la suite ! 🔥</span>
+                <span class="cta-tag">CORRECTION EN VIDÉO 🎬</span>
+                <span class="cta-subtext">Dis en com l'exo à corriger !</span>
             </div>
-            <div class="cta-button-pill">+ S'ABONNER</div>
+            <div class="cta-button-pill">COMMENTE 👇</div>
         </div>
     </div>
 
@@ -375,51 +377,55 @@
     <!-- ==================== SLIDE 5 ==================== -->
     <div class="slide">
         <div class="header">
-            <span class="badge-topic">Terminale S • Propriétés</span>
+            <span class="badge-topic">Terminale S • Continuité</span>
             <span class="slide-number">05 / 06</span>
         </div>
 
-        <h1>Monotonie & <span>Existence de Limite</span></h1>
+        <h1>Continuité avec <span>Paramètre</span></h1>
 
         <div class="content">
-            <div class="box" style="border-left-color: #38bdf8;">
-                L'image d'un intervalle fermé borné \( [a, b] \) par une fonction continue est un intervalle fermé borné \( [m, M] \).
+            <div class="exo-box" style="border-left-color: #34d399;">
+                <span class="exo-title">Exo 11 • Trouver a</span>
+                Soit \( f \) la fonction définie par :
+                <div style="margin: 8px 0;">
+                \( \begin{cases} 
+                f(x) = x^3 + 2ax + 1 & \text{si } x \ge 1 \\ 
+                f(x) = ax^2 + 3x & \text{si } x < 1 
+                \end{cases} \)
+                </div>
+                Trouver \( a \) pour que \( f \) soit <strong>continue en \( 1 \)</strong>.
             </div>
 
-            <ul style="margin-top: 10px;">
-                <li><strong>Fonction croissante :</strong><br>
-                ↳ Si <span class="highlight">majorée</span> 👉 limite finie.<br>
-                ↳ Si <span class="highlight-red">non majorée</span> 👉 tend vers \( +\infty \).</li>
-                <li><strong>Fonction décroissante :</strong><br>
-                ↳ Si <span class="highlight">minorée</span> 👉 limite finie.<br>
-                ↳ Si <span class="highlight-red">non minorée</span> 👉 tend vers \( -\infty \).</li>
-            </ul>
+            <div class="tip-box">
+                💡 <strong>Condition :</strong> Calcule \( \lim_{x \to 1^+} f \) et \( \lim_{x \to 1^-} f \), puis résous l'équation.
+            </div>
         </div>
 
         <div class="persistent-cta">
             <div class="cta-info">
-                <span class="cta-tag">PARTIE 1/2 • FIN COURS</span>
-                <span class="cta-subtext">Les exercices arrivent tout de suite !</span>
+                <span class="cta-tag">CORRECTION EN VIDÉO 🎬</span>
+                <span class="cta-subtext">Dis en com l'exo à corriger !</span>
             </div>
-            <div class="cta-button-pill">+ S'ABONNER</div>
+            <div class="cta-button-pill">COMMENTE 👇</div>
         </div>
     </div>
 
 
-    <!-- ==================== SLIDE 6 : TEASER ==================== -->
+    <!-- ==================== SLIDE 6 : CTA DÉDIÉ ==================== -->
     <div class="slide cta-final-slide">
-        <div class="big-icon">🎯</div>
-        <div class="final-title">PRÊT POUR LE BAC S ?</div>
+        <div class="big-icon">✍️</div>
+        <div class="final-title">DIS EN COMMENTAIRE L'EXERCICE QUE TU VEUX QU'ON CORRIGE !</div>
+        
         <div class="final-desc">
-            Le cours est validé ! La <strong>Partie 2</strong> avec les <strong>exercices types Bac corrigés</strong> sort très vite.
+            Indique le numéro (<strong>Exo 1, 2, 3, 4 ou 5</strong>) : je tourne la <strong>correction vidéo détaillée</strong> pas-à-pas sur le plus demandé !
         </div>
 
         <div class="big-cta-btn">
-            <span>+</span> ABONNE-TOI MAINTENANT
+            <span>💬</span> ÉCRIS TON CHOIX EN COM
         </div>
 
-        <div style="margin-top: 22px; font-size: 12px; color: #64748b;">
-            💡 Enregistre ce post pour réviser avant le devoir !
+        <div style="margin-top: 22px; font-size: 13.5px; color: #94a3b8; font-weight: 800;">
+            🔔 Abonne-toi pour être notifié de la vidéo solution !
         </div>
     </div>
 
