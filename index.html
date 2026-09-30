@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrousel TikTok - Exercices Limites & Continuité (Terminale S)</title>
+    <title>Correction Détaillée Exo 1 & 2 - Terminale S</title>
     
-    <!-- Configuration MathJax : rendu agrandi de 18% -->
+    <!-- Configuration MathJax : taille agrandie pour smartphone -->
     <script>
         window.MathJax = {
             tex: { inlineMath: [['\\(', '\\)']] },
-            chtml: { scale: 1.18 }
+            chtml: { scale: 1.14 }
         };
     </script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -68,91 +68,128 @@
         }
 
         .badge-topic {
-            background: rgba(244, 63, 94, 0.18);
-            color: #f43f5e;
-            font-size: 12px;
+            background: rgba(56, 189, 248, 0.18);
+            color: #38bdf8;
+            font-size: 11px;
             font-weight: 900;
             padding: 4px 10px;
             border-radius: 20px;
             text-transform: uppercase;
             letter-spacing: 0.6px;
-            border: 1px solid rgba(244, 63, 94, 0.4);
+            border: 1px solid rgba(56, 189, 248, 0.4);
         }
 
         .slide-number {
-            font-size: 13px;
+            font-size: 12px;
             color: #94a3b8;
             font-weight: 800;
         }
 
-        /* Titres */
+        /* Titre */
         h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 21px;
+            font-size: 19px;
             color: #ffffff;
             text-align: left;
-            margin: 10px 0 8px 0;
-            line-height: 1.2;
+            margin: 6px 0 6px 0;
+            line-height: 1.25;
             z-index: 1;
         }
 
         h1 span {
-            color: #38bdf8;
+            color: #fbbf24;
         }
 
         /* Conteneur principal */
         .content {
-            font-size: 16px;
+            font-size: 14.5px;
             line-height: 1.4;
             z-index: 1;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 10px;
+            gap: 7px;
         }
 
-        /* Cartes d'exercices */
-        .exo-box {
-            background: rgba(255, 255, 255, 0.05);
-            border-left: 4px solid #38bdf8;
-            padding: 10px 14px;
-            border-radius: 0 10px 10px 0;
-            font-size: 15.5px;
+        /* Cadre spécifique pour l'Énoncé */
+        .enonce-card {
+            background: rgba(56, 189, 248, 0.08);
+            border: 1.5px solid #38bdf8;
+            border-radius: 12px;
+            padding: 9px 12px;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.15);
         }
 
-        .exo-title {
+        .enonce-tag {
+            color: #38bdf8;
+            font-size: 11px;
             font-weight: 900;
-            color: #fbbf24;
-            font-size: 12.5px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 5px;
             display: block;
+            margin-bottom: 2px;
         }
 
-        /* Boîte astuces */
+        .enonce-math {
+            font-size: 16px;
+            color: #ffffff;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        /* Cartes d'étapes d'explication */
+        .step-card {
+            background: rgba(255, 255, 255, 0.04);
+            border-left: 3.5px solid #fbbf24;
+            padding: 7px 11px;
+            border-radius: 0 9px 9px 0;
+            font-size: 13.5px;
+        }
+
+        .step-title {
+            font-weight: 900;
+            color: #fbbf24;
+            font-size: 11.5px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        /* Résultat final */
+        .result-box {
+            background: rgba(52, 211, 153, 0.12);
+            border: 2px solid #34d399;
+            padding: 7px 10px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 800;
+            color: #6ee7b7;
+        }
+
+        /* Astuces pour l'élève */
         .tip-box {
-            background: rgba(52, 211, 153, 0.1);
-            border: 1px dashed #34d399;
-            padding: 9px 12px;
+            background: rgba(244, 63, 94, 0.08);
+            border: 1px dashed #f43f5e;
+            padding: 6px 10px;
             border-radius: 8px;
-            font-size: 14px;
-            color: #a7f3d0;
+            font-size: 12.5px;
+            color: #fecdd3;
             font-weight: 700;
         }
 
-        /* Nouveau CTA persistant axé sur le commentaire */
+        /* Bannière CTA */
         .persistent-cta {
             z-index: 2;
             background: linear-gradient(90deg, #1e293b, #0f172a);
             border: 1px solid #334155;
             border-radius: 14px;
-            padding: 9px 14px;
+            padding: 8px 14px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-top: 8px;
+            margin-top: 6px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
 
@@ -162,15 +199,14 @@
         }
 
         .cta-tag {
-            font-size: 10px;
+            font-size: 9.5px;
             color: #fbbf24;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         .cta-subtext {
-            font-size: 12px;
+            font-size: 11.5px;
             color: #f8fafc;
             font-weight: 800;
         }
@@ -178,254 +214,182 @@
         .cta-button-pill {
             background: #f43f5e;
             color: white;
-            padding: 7px 14px;
+            padding: 6px 13px;
             border-radius: 20px;
-            font-size: 11.5px;
+            font-size: 11px;
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
             white-space: nowrap;
             box-shadow: 0 0 12px rgba(244, 63, 94, 0.5);
         }
-
-        /* Slide finale */
-        .cta-final-slide {
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-            background: radial-gradient(circle at center, #1e293b 0%, #090d16 100%);
-        }
-
-        .big-icon {
-            font-size: 55px;
-            margin-bottom: 8px;
-        }
-
-        .final-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 21px;
-            color: #ffffff;
-            margin-bottom: 12px;
-            line-height: 1.3;
-            text-transform: uppercase;
-        }
-
-        .final-desc {
-            font-size: 14.5px;
-            color: #cbd5e1;
-            margin-bottom: 22px;
-            padding: 0 8px;
-            line-height: 1.45;
-        }
-
-        .big-cta-btn {
-            background: #f43f5e;
-            color: white;
-            padding: 14px 24px;
-            border-radius: 35px;
-            font-size: 15px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            box-shadow: 0 0 25px rgba(244, 63, 94, 0.6);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
     </style>
 </head>
 <body>
 
-    <!-- ==================== SLIDE 1 ==================== -->
+    <!-- ==================== SLIDE 1 : EXO 1 (ÉNONCÉ & MÉTHODE) ==================== -->
     <div class="slide">
         <div class="header">
-            <span class="badge-topic">Terminale S • Exo Bac</span>
-            <span class="slide-number">01 / 06</span>
+            <span class="badge-topic">Terminale S • Corrigé</span>
+            <span class="slide-number">01 / 04</span>
         </div>
 
-        <h1>Forme Indéterminée <span>« 0 / 0 »</span></h1>
+        <h1>Exo 1 : <span>La Factorisation</span></h1>
 
         <div class="content">
-            <div class="exo-box">
-                <span class="exo-title">Exo 1 • Factorisation</span>
-                Calculer : \( \lim_{x \to 1} \frac{x^2+3x-4}{x-1} \)
-            </div>
-
-            <div class="exo-box" style="border-left-color: #fbbf24;">
-                <span class="exo-title">Exo 2 • Expression Conjuguée</span>
-                Calculer : \( \lim_{x \to 1} \frac{\sqrt{x+3}-2}{x-1} \)
-            </div>
-
-            <div class="tip-box">
-                💡 <strong>Astuce :</strong> Simplifie toujours par \( (x - 1) \) après avoir factorisé ou multiplié par le conjugué !
-            </div>
-        </div>
-
-        <div class="persistent-cta">
-            <div class="cta-info">
-                <span class="cta-tag">CORRECTION EN VIDÉO 🎬</span>
-                <span class="cta-subtext">Dis en com l'exo à corriger !</span>
-            </div>
-            <div class="cta-button-pill">COMMENTE 👇</div>
-        </div>
-    </div>
-
-
-    <!-- ==================== SLIDE 2 ==================== -->
-    <div class="slide">
-        <div class="header">
-            <span class="badge-topic">Terminale S • Piège Bac</span>
-            <span class="slide-number">02 / 06</span>
-        </div>
-
-        <h1>Radicaux : <span>Piège en \( -\infty \)</span></h1>
-
-        <div class="content">
-            <div class="exo-box" style="border-left-color: #f43f5e;">
-                <span class="exo-title">Exo 3.2 • Attention au signe</span>
-                Calculer : \( \lim_{x \to -\infty} \frac{\sqrt{x^2+2x-5}}{2x} \)
-            </div>
-
-            <div class="exo-box">
-                <span class="exo-title">Exo 3.3 • Forme \( \infty - \infty \)</span>
-                Calculer : \( \lim_{x \to -\infty} \left( \sqrt{3x^2+x-1} + x \right) \)
-            </div>
-
-            <div class="tip-box" style="border-color: #f43f5e; color: #fecdd3; background: rgba(244,63,94,0.12);">
-                ⚠️ <strong>Règle clé :</strong> Quand \( x < 0 \), on a \( \sqrt{x^2} = |x| = \mathbf{-x} \) !
-            </div>
-        </div>
-
-        <div class="persistent-cta">
-            <div class="cta-info">
-                <span class="cta-tag">CORRECTION EN VIDÉO 🎬</span>
-                <span class="cta-subtext">Dis en com l'exo à corriger !</span>
-            </div>
-            <div class="cta-button-pill">COMMENTE 👇</div>
-        </div>
-    </div>
-
-
-    <!-- ==================== SLIDE 3 ==================== -->
-    <div class="slide">
-        <div class="header">
-            <span class="badge-topic">Terminale S • Trigo</span>
-            <span class="slide-number">03 / 06</span>
-        </div>
-
-        <h1>Limites <span>Trigonométriques</span></h1>
-
-        <div class="content">
-            <div class="exo-box">
-                <span class="exo-title">Exo 4.5 • Changement de variable</span>
-                Calculer : \( \lim_{x \to +\infty} x \sin\left(\frac{1}{x}\right) \)
-            </div>
-
-            <div class="exo-box" style="border-left-color: #fbbf24;">
-                <span class="exo-title">Exo 4.2 • Taux d'accroissement</span>
-                Calculer : \( \lim_{x \to 0} \frac{\sin x + \sin 2x}{\sin x - \sin 2x} \)
-            </div>
-
-            <div class="tip-box">
-                💡 <strong>Rappel :</strong> Pose \( X = \frac{1}{x} \) pour utiliser la référence \( \lim_{X \to 0} \frac{\sin X}{X} = 1 \).
-            </div>
-        </div>
-
-        <div class="persistent-cta">
-            <div class="cta-info">
-                <span class="cta-tag">CORRECTION EN VIDÉO 🎬</span>
-                <span class="cta-subtext">Dis en com l'exo à corriger !</span>
-            </div>
-            <div class="cta-button-pill">COMMENTE 👇</div>
-        </div>
-    </div>
-
-
-    <!-- ==================== SLIDE 4 ==================== -->
-    <div class="slide">
-        <div class="header">
-            <span class="badge-topic">Terminale S • Encadrement</span>
-            <span class="slide-number">04 / 06</span>
-        </div>
-
-        <h1>Théorème des <span>Gendarmes</span></h1>
-
-        <div class="content">
-            <div class="exo-box" style="border-left-color: #38bdf8;">
-                <span class="exo-title">Exo 13 • Classique du Bac</span>
-                Soit \( f(x) = \frac{2x + \cos x}{x+1} \) pour \( x > -1 \).
-                <div style="margin-top: 8px;">
-                    <strong>1)</strong> Montrer que :
-                    \[ \frac{2x-1}{x+1} \le f(x) \le \frac{2x+1}{x+1} \]
-                    <strong>2)</strong> En déduire \( \lim_{x \to +\infty} f(x) \).
+            <!-- Énoncé -->
+            <div class="enonce-card">
+                <span class="enonce-tag">📌 Énoncé de l'exercice :</span>
+                <div class="enonce-math">
+                    Calculer \( \lim_{x \to 1} \frac{x^2+3x-4}{x-1} \)
                 </div>
             </div>
 
-            <div class="tip-box">
-                💡 <strong>Méthode :</strong> Pars toujours de \( -1 \le \cos x \le 1 \).
+            <!-- Explication élève -->
+            <div class="step-card" style="border-left-color: #f43f5e;">
+                <span class="step-title" style="color: #f43f5e;">Étape 1 : Le test direct</span>
+                Si on remplace \( x \) par \( 1 \) :<br>
+                Numérateur : \( 1^2 + 3(1) - 4 = 0 \)<br>
+                Dénominateur : \( 1 - 1 = 0 \)<br>
+                👉 On a une Forme Indéterminée <strong>« 0 / 0 »</strong>.
+            </div>
+
+            <div class="step-card">
+                <span class="step-title">Étape 2 : L'idée de résolution</span>
+                Comme \( 1 \) annule le numérateur, on peut <strong>factoriser par \( (x - 1) \)</strong> pour éliminer ce qui coince au dénominateur !
             </div>
         </div>
 
         <div class="persistent-cta">
             <div class="cta-info">
                 <span class="cta-tag">CORRECTION EN VIDÉO 🎬</span>
-                <span class="cta-subtext">Dis en com l'exo à corriger !</span>
+                <span class="cta-subtext">Swipe pour le calcul final !</span>
             </div>
-            <div class="cta-button-pill">COMMENTE 👇</div>
+            <div class="cta-button-pill">SWIPE 👉</div>
         </div>
     </div>
 
 
-    <!-- ==================== SLIDE 5 ==================== -->
+    <!-- ==================== SLIDE 2 : EXO 1 (CALCUL DÉTAILLÉ) ==================== -->
     <div class="slide">
         <div class="header">
-            <span class="badge-topic">Terminale S • Continuité</span>
-            <span class="slide-number">05 / 06</span>
+            <span class="badge-topic">Terminale S • Corrigé</span>
+            <span class="slide-number">02 / 04</span>
         </div>
 
-        <h1>Continuité avec <span>Paramètre</span></h1>
+        <h1>Exo 1 : <span>Résolution Détaillée</span></h1>
 
         <div class="content">
-            <div class="exo-box" style="border-left-color: #34d399;">
-                <span class="exo-title">Exo 11 • Trouver a</span>
-                Soit \( f \) la fonction définie par :
-                <div style="margin: 8px 0;">
-                \( \begin{cases} 
-                f(x) = x^3 + 2ax + 1 & \text{si } x \ge 1 \\ 
-                f(x) = ax^2 + 3x & \text{si } x < 1 
-                \end{cases} \)
-                </div>
-                Trouver \( a \) pour que \( f \) soit <strong>continue en \( 1 \)</strong>.
+            <div class="step-card" style="border-left-color: #38bdf8;">
+                <span class="step-title" style="color: #38bdf8;">1. Factorisation du polynôme</span>
+                On cherche deux nombres dont le produit fait \( -4 \) et la somme fait \( 3 \) : ce sont \( -1 \) et \( 4 \).
+                \[ x^2+3x-4 = (x-1)(x+4) \]
+            </div>
+
+            <div class="step-card" style="border-left-color: #a78bfa;">
+                <span class="step-title" style="color: #a78bfa;">2. Simplification pour \( x \neq 1 \)</span>
+                \[ \frac{x^2+3x-4}{x-1} = \frac{(x-1)(x+4)}{x-1} = x+4 \]
+            </div>
+
+            <div class="result-box">
+                \( \lim_{x \to 1} (x+4) = 1 + 4 = \mathbf{5} \)
             </div>
 
             <div class="tip-box">
-                💡 <strong>Condition :</strong> Calcule \( \lim_{x \to 1^+} f \) et \( \lim_{x \to 1^-} f \), puis résous l'équation.
+                💡 <strong>À retenir :</strong> En factorisant par \( (x - 1) \), l'indétermination disparaît instantanément !
             </div>
         </div>
 
         <div class="persistent-cta">
             <div class="cta-info">
-                <span class="cta-tag">CORRECTION EN VIDÉO 🎬</span>
-                <span class="cta-subtext">Dis en com l'exo à corriger !</span>
+                <span class="cta-tag">PASSAGE À L'EXO 2 🎬</span>
+                <span class="cta-subtext">Swipe pour l'expression conjuguée !</span>
             </div>
-            <div class="cta-button-pill">COMMENTE 👇</div>
+            <div class="cta-button-pill">SWIPE 👉</div>
         </div>
     </div>
 
 
-    <!-- ==================== SLIDE 6 : CTA DÉDIÉ ==================== -->
-    <div class="slide cta-final-slide">
-        <div class="big-icon">✍️</div>
-        <div class="final-title">DIS EN COMMENTAIRE L'EXERCICE QUE TU VEUX QU'ON CORRIGE !</div>
-        
-        <div class="final-desc">
-            Indique le numéro (<strong>Exo 1, 2, 3, 4 ou 5</strong>) : je tourne la <strong>correction vidéo détaillée</strong> pas-à-pas sur le plus demandé !
+    <!-- ==================== SLIDE 3 : EXO 2 (ÉNONCÉ & CONJUGUÉ) ==================== -->
+    <div class="slide">
+        <div class="header">
+            <span class="badge-topic">Terminale S • Corrigé</span>
+            <span class="slide-number">03 / 04</span>
         </div>
 
-        <div class="big-cta-btn">
-            <span>💬</span> ÉCRIS TON CHOIX EN COM
+        <h1>Exo 2 : <span>Le Conjugué</span></h1>
+
+        <div class="content">
+            <!-- Énoncé -->
+            <div class="enonce-card">
+                <span class="enonce-tag">📌 Énoncé de l'exercice :</span>
+                <div class="enonce-math">
+                    Calculer \( \lim_{x \to 1} \frac{\sqrt{x+3}-2}{x-1} \)
+                </div>
+            </div>
+
+            <div class="step-card" style="border-left-color: #f43f5e;">
+                <span class="step-title" style="color: #f43f5e;">Constat : F.I. « 0 / 0 »</span>
+                Pour \( x = 1 \) : \( \sqrt{4} - 2 = 0 \) et \( 1 - 1 = 0 \).
+            </div>
+
+            <div class="step-card">
+                <span class="step-title">Pourquoi l'expression conjuguée ?</span>
+                Pour enlever la racine carrée, on applique l'identité :
+                \[ (A - B)(A + B) = A^2 - B^2 \]
+                Le conjugué de \( (\sqrt{x+3}-2) \) est \( (\sqrt{x+3}+2) \).
+            </div>
+
+            <div class="tip-box">
+                ⚠️ <strong>Règle d'or :</strong> Multiplie en haut ET en bas par ce conjugué pour ne pas modifier la fonction !
+            </div>
         </div>
 
-        <div style="margin-top: 22px; font-size: 13.5px; color: #94a3b8; font-weight: 800;">
-            🔔 Abonne-toi pour être notifié de la vidéo solution !
+        <div class="persistent-cta">
+            <div class="cta-info">
+                <span class="cta-tag">RÉSULTAT EXO 2 🎬</span>
+                <span class="cta-subtext">Swipe pour la simplification !</span>
+            </div>
+            <div class="cta-button-pill">SWIPE 👉</div>
+        </div>
+    </div>
+
+
+    <!-- ==================== SLIDE 4 : EXO 2 (CALCUL & RÉSULTAT) ==================== -->
+    <div class="slide">
+        <div class="header">
+            <span class="badge-topic">Terminale S • Corrigé</span>
+            <span class="slide-number">04 / 04</span>
+        </div>
+
+        <h1>Exo 2 : <span>Calcul & Conclusion</span></h1>
+
+        <div class="content">
+            <div class="step-card" style="border-left-color: #38bdf8;">
+                <span class="step-title" style="color: #38bdf8;">1. Développement du numérateur</span>
+                \[ (\sqrt{x+3})^2 - 2^2 = x + 3 - 4 = \mathbf{x - 1} \]
+            </div>
+
+            <div class="step-card" style="border-left-color: #a78bfa;">
+                <span class="step-title" style="color: #a78bfa;">2. Simplification par \( (x-1) \)</span>
+                \[ \frac{x-1}{(x-1)(\sqrt{x+3}+2)} = \frac{1}{\sqrt{x+3}+2} \]
+            </div>
+
+            <div class="result-box">
+                \( \lim_{x \to 1} \frac{1}{\sqrt{1+3}+2} = \frac{1}{2+2} = \mathbf{\frac{1}{4}} \)
+            </div>
+
+            <div class="tip-box" style="border-color: #34d399; color: #a7f3d0; background: rgba(52,211,153,0.08);">
+                ✅ <strong>Piège évité :</strong> Ne développe JAMAIS le bas, garde toujours \( (x - 1) \) en facteur !
+            </div>
+        </div>
+
+        <!-- CTA interactif invitant au commentaire -->
+        <div class="persistent-cta">
+            <div class="cta-info">
+                <span class="cta-tag">EXERCICE SUIVANT ✍️</span>
+                <span class="cta-subtext">Dis en com l'exo à corriger !</span>
+            </div>
+            <div class="cta-button-pill">COMMENTE 👇</div>
         </div>
     </div>
 
